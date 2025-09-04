@@ -22,7 +22,7 @@
     }
     #container {
         display: flex;
-        min-height: calc(100vh - 80px); /* header height */
+        min-height: calc(100vh - 80px);
     }
     #sidebar {
         width: 220px;
@@ -111,36 +111,8 @@
     </div>
 </div>
 
-<script>
-    // Basic interactivity
-    const output = document.getElementById('output');
-    const input = document.getElementById('input-text');
-    const sendBtn = document.getElementById('send-btn');
-
-    function addMessage(message, sender='user') {
-        const msgDiv = document.createElement('div');
-        msgDiv.textContent = (sender==='user' ? 'You: ' : 'AI: ') + message;
-        msgDiv.style.marginBottom = '10px';
-        output.appendChild(msgDiv);
-        output.scrollTop = output.scrollHeight;
-    }
-
-    sendBtn.addEventListener('click', () => {
-        const userMessage = input.value.trim();
-        if(userMessage === '') return;
-        addMessage(userMessage, 'user');
-        input.value = '';
-
-        // Placeholder for API call
-        setTimeout(() => {
-            addMessage('This is where AI response will appear.', 'ai');
-        }, 500);
-    });
-
-    input.addEventListener('keypress', (e) => {
-        if(e.key === 'Enter') sendBtn.click();
-    });
-</script>
+<!-- LINK TO EXTERNAL JS -->
+<script src="app/app.js"></script>
 
 </body>
 </html>
